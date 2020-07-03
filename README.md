@@ -134,7 +134,6 @@ Now that you've added the relationships and the setting to not save the selected
 					'autoselect' => 'present',
 	           		'options'			=> [
 	           									[ 'slug' => 'present' , 'label' => 'Present' , 'relationship_api_id' => 'student_to_attendance_present'  ],
-	           									[ 'slug' => 'cancelled' , 'label' => 'Cancelled' , 'relationship_api_id' => 'student_to_attendance_cancelled'  ],
 							               		[ 'slug' => 'absent' , 'label' => 'Absent', 'relationship_api_id' => 'student_to_attendance_absent' ],
 	           									[ 'slug' => 'late' , 'label' => 'Late' , 'relationship_api_id' => 'student_to_attendance_late' ],
 	           								],
@@ -164,4 +163,6 @@ Keep the order in which the students are added or order them on title. Currently
 
 #### Changelog
 
-0.5.0  first version
+| version | description |
+| 0.5.1 | removed an option from code-example that wasn't supposed to be in there, renamed the main plugin file, there was a typo. Changed fileheaders to be more descriptive of plugin functionality
+| 0.5.0 | first version
