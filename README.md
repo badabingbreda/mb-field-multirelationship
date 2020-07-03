@@ -164,5 +164,6 @@ Keep the order in which the students are added or order them on title. Currently
 #### Changelog
 
 | version | description |
+| -- | -- |
 | 0.5.1 | removed an option from code-example that wasn't supposed to be in there, renamed the main plugin file, there was a typo. Changed fileheaders to be more descriptive of plugin functionality
 | 0.5.0 | first version
