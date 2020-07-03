@@ -1,0 +1,10 @@
+.multirelationshipField table td {
+  padding: 5px;
+}
+.multirelationshipField table td.__mrs__label__ {
+  padding-right: 40px;
+  font-weight: 700;
+}
+.multirelationshipField table label {
+  margin: 5px 10px;
+}
