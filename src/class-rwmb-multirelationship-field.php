@@ -105,9 +105,18 @@ function register_multirelationship_field() {
 
 				foreach( $field[ 'options' ] as $relationship ) {
 
-					$connected = MB_Relationships_API::get_connected( [ 'id' => $relationship['relationship_api_id'] , 'to' => $postid ] );
+					$connected = new WP_Query( array(
+					    'relationship' => array(
+					        'id'   => $relationship['relationship_api_id'],
+					        'to' => $postid,
+					    ),
+					    'post_type' => $field['to'],
+					    'nopaging'     => true,
+					) );
 
-					foreach ($connected as $present ) {
+					if ( !$connected->have_posts() ) continue;
+
+					foreach ($connected->posts as $present ) {
 
 						$is_present[] = array( 'id' => $present->ID , 'label' => $present->post_title , 'value' => $relationship[ 'slug' ] );
 

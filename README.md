@@ -1,3 +1,4 @@
+
 # Meta Box Multirelationship Field
 
 The Meta Box Multirelationship field is not so much a new fieldtype, but a fieldtype to control multiple relationships at once. There are situations where you normally would need to maintain multiple relationships to track.
@@ -145,6 +146,7 @@ Now that you've added the relationships and the setting to not save the selected
 		return $meta_boxes;
 	}
 
+
 | Name | Description |
 |--|--|
 | button_label | Text on the button when adding a new item|
@@ -156,6 +158,18 @@ Now that you've added the relationships and the setting to not save the selected
 | | `relationship_api_id` is the ID of the relationship as set during registration (string) |
 | hide_metaboxes | Adds CSS to hide the default metabox(es) that have no function, but are still showing. optional true / false (boolean)(optional, default: true)
 
+#### Note:
+Please note that adding relationships to CPT's that are excluded from search results is possible, but to retrieve it's connected posts it is necessary to use WP_Query, and not MB_Relationships_API::get_connected().
+Make sure to include the post_type(s) in the `post_type` parameter.
+
+					$connected = new WP_Query( array(
+					    'relationship' => array(
+					        'id'   => 'student_to_attendance_present',
+					        'to' => 16,
+					    ),
+					    'post_type' => 'student',
+					    'nopaging'     => true,
+					) );
 
 #### Roadmap
 
@@ -165,5 +179,6 @@ Keep the order in which the students are added or order them on title. Currently
 
 | version | description |
 | -- | -- |
+| 0.6.0 | Changed the way the relationships are being fetched on field rendering; When a post-type is excluded from search, it doesn't show up on get_connected() method. Use new WP_Query() method instead and feed it the post_type parameter |
 | 0.5.1 | removed an option from code-example that wasn't supposed to be in there, renamed the main plugin file, there was a typo. Changed fileheaders to be more descriptive of plugin functionality
 | 0.5.0 | first version
